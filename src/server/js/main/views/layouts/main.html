@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Gsos</title>
+
+   <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+   <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+   <link href="/assets/css/animate.css" rel="stylesheet">
+   <link href="/assets/css/plugins/iCheck/custom.css" rel="stylesheet">
+   <link href="/assets/css/plugins/dropzone/basic.css" rel="stylesheet">
+   <link href="/assets/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+   <link href="/assets/css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+   <link href="/assets/css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
+   <link href="/assets/css/style.css" rel="stylesheet">
+   <link href="/assets/css/checklist-styles.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body class="fixed-sidebar fixed-nav">
+   {% include "layouts/sidebar.html" %}
+   <div id="page-wrapper" class="gray-bg dashbard-1">
+      {% include "layouts/header.html" %}
+      <div>
+         {% block body %}{% endblock %}
+      </div>
+   </div>
+
+   <!-- Mainly scripts -->
+   <script src="/assets/js/jquery-2.1.4.js"></script>
+   <script src="/assets/js/bootstrap.min.js"></script>
+   <script src="/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+   <script src="/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+   <!-- Custom and plugin javascript -->
+   <script src="/assets/js/inspinia.js"></script>
+   <!-- <script src="/assets/js/plugins/pace/pace.min.js"></script> -->
+
+   <!-- Flot -->
+   <script src="/assets/js/plugins/flot/jquery.flot.js"></script>
+   <script src="/assets/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+   <script src="/assets/js/plugins/flot/jquery.flot.resize.js"></script>
+
+   <!-- ChartJS-->
+   <script src="/assets/js/plugins/chartJs/Chart.min.js"></script>
+
+   <!-- Peity -->
+   <script src="/assets/js/plugins/peity/jquery.peity.min.js"></script>
+   <!-- Peity demo -->
+   <script src="/assets/js/demo/peity-demo.js"></script>
+   <script src="/assets/js/plugins/dropzone/dropzone.js"></script>
+   <!-- iCheck -->
+   <script src="/assets/js/plugins/iCheck/icheck.min.js"></script>
+   <!-- Full Calendar -->
+   <script src="/assets/js/plugins/fullcalendar/moment.min.js"></script>
+   <script src="/assets/js/plugins/fullcalendar/fullcalendar.min.js"></script>
+   <script src="/assets/js/plugins/toastr/toastr.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+gpsi_db:
+   image: rethinkdb
+   container_name: gpsi-db
+   ports:
+      - "8082:8080"
+gsos_server:
+   build: ./node
+   container_name: gsos-server
+   ports:
+      - "8083:8080"
+   volumes:
+      - ../../src:/src
+   working_dir: /src
+   links:
+      - gpsi_db
+   # external_links:
+   #    - gpsi-activiti:activiti
+   #    - gpsi-db:gpsi_db
+   command: bash -c "npm install && npm start"

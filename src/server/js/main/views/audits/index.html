@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block body %}
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-sm-4">
+      <h2>Auditorías</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="#">Inicio</a>
+         </li>
+         <li class="active">
+            <strong>Auditorías</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+
+{% if audits.length == 0 %}
+<div class="row">
+   <div class="col-lg-12">
+      <div class="wrapper wrapper-content">
+         <div class="jumbotron">
+            <p>Tu lista de auditorías esta vacía, solicita tu primera auditoría</p>
+            <p><a href="/admin/audits/new" role="button" class="btn btn-primary btn-lg">Solicitar auditoríar</a>
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+{% endif %}
+
+{% if audits.length > 0 %}
+<div class="row">
+   <div class="col-lg-12">
+      <div class="wrapper wrapper-content">
+         <div class="ibox">
+            <div class="ibox-title">
+               <h5>Todos los resultados de las auditorías</h5>
+               <div class="ibox-tools">
+                  <a href="/admin/audits/new" class="btn btn-primary btn-xs">Solicitar auditoría</a>
+               </div>
+            </div>
+            <div class="ibox-content">
+               <div class="project-list">
+                  <div class="table-responsive">
+                     <table class="table table-hover">
+                        <thead>
+                           <td width="5%">Status</td>
+                           <td width="50%">Proveedor</td>
+                           <td width="20%">Resultado</td>
+                           <td width="25%">Fecha</td>
+                           <td></td>
+                        </thead>
+                        <tbody>
+                           {% for audit in audits %}
+                           <tr>
+                              <td class="project-status">
+                                 <span class="label label-primary">Aprobado</span>
+                              </td>
+                              <td class="project-title">
+                                 <a href="project_detail.html">{{audit.supplier.profile.firstName}} {{audit.supplier.profile.lastName}}</a>
+                                 <br>
+                                 <small>{{audit.supplier.profile.companyName}}</small>
+                              </td>
+                              <td class="project-completion">
+                                 <small>Calificación</small>
+                                 <div class="progress progress-mini">
+                                    <div style="width: {{audit.score}}%" class="progress-bar">{{audit.score}}/100</div>
+                                 </div>
+                              </td>
+                              <td>{{audit.createdAt}}</td>
+                              <td class="project-actions">
+                                 <a href="/admin/audits/{{audit.id}}" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> Detalles </a>
+                              </td>
+                           </tr>
+                           {% endfor %}
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block body %}
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-sm-12">
+      <h2>Registrar acreditación</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="#">Inicio</a>
+         </li>
+         <li>
+            <a href="/admin/checklists">Accreditaciones</a>
+         </li>
+         <li class="active">
+            <strong>Solicitar acreditación</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+<div class="row">
+   <div class="col-lg-10">
+      <div class="wrapper wrapper-content">
+         <div class="ibox">
+            <div class="ibox-title">
+               <h5>General <small>Use el siguiente formulario para capturar toda la información necesaria para registrar acreditación.</small></h5>
+               <div class="ibox-tools">
+                  <a class="btn btn-primary btn-xs">Enviar solicitud</a>
+               </div>
+            </div>
+            <div class="ibox-content">
+               <p>Agregar nombre y documentación para la acreditación.</p>
+               <div class="form-group">
+                  <label>Nombre</label>
+                  <input type="text" class="form-control">
+               </div>
+               <div class="form-group">
+                  <label>Documentos</label>
+                  <form id="dropzone1" class="dropzone" action="#" style="min-height:160px">
+                     <div class="dropzone-previews"></div>
+                  </form>
+               </div>
+               <p>Escriba el proposito de los documentos y agregue información adicional.</p>
+               <div class="form-group">
+                  <label>Notas</label>
+                  <textarea class="form-control" rows="6"></textarea>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{
+    "version": "1.5.0-beta",
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "../../js/main"
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "./**/*.tsx",
+        "!./node_modules/**/*"
+    ],
+    "files": [
+        "./app-exception.ts",
+        "./controllers/account-cntlr.ts",
+        "./controllers/audits-cntlr.ts",
+        "./controllers/checklists-cntlr.ts",
+        "./controllers/clients-cntlr.ts",
+        "./controllers/complaints-cntlr.ts",
+        "./controllers/reports-cntlr.ts",
+        "./controllers/settings-cntlr.ts",
+        "./controllers/suppliers-cntlr.ts",
+        "./data/audit-repository.ts",
+        "./data/base-repository.ts",
+        "./data/checklist-repository.ts",
+        "./data/complaint-repository.ts",
+        "./data/db-init.ts",
+        "./data/form-repository.ts",
+        "./data/user-repository.ts",
+        "./domain/models.ts",
+        "./index.ts",
+        "./infrastructure/activiti/exception.ts",
+        "./infrastructure/activiti/task.ts",
+        "./infrastructure/passport-config.ts"
+    ]
+}

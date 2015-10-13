@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block body %}
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-sm-12">
+      <h2>Detalle de Checklist</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="#">Inicio</a>
+         </li>
+         <li>
+            <a href="/admin/checklists">Accreditaciones</a>
+         </li>
+         <li class="active">
+            <strong>Formulario</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+<div class="form">
+   <table class="body-wrap">
+      <tr>
+         <td></td>
+         <td class="container" width="600">
+            <div class="content">
+               <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                     <td class="alert alert-good">
+                        {{form.name}}
+                     </td>
+                  </tr>
+                  <tr>
+                     <td class="content-wrap">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                           {% for question in form.questions %}
+                           <tr>
+                              <td>
+                                 <div class="content-block">
+                                    {{question}}
+                                 </div>
+                                 <div class="content-block">
+                                    <div class="form-group">
+                                       <label>Calificación</label>
+                                       <div>
+                                          <select class="form-control m-b" name="account">
+                                             {% for option in form.options %}
+                                             <option value="{{option.value}}">{{option.name}}</option>
+                                             {% endfor %}
+                                          </select>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </td>
+                           </tr>
+                           {% endfor %}
+                        </table>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </td>
+         <td></td>
+      </tr>
+   </table>
+</div>
+{% endblock %}
