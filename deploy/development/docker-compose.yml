@@ -9,10 +9,6 @@ gsos_db:
 gsos_activiti_db:
    image: sameersbn/mysql
    container_name: gsos-activiti-db
-   environment:
-      DB_NAME: "activiti_db"
-      DB_USER: "activiti_user"
-      DB_PASS: "activiti_pass"
    volumes:
       - ./db-tests/activiti-1:/var/lib/mysql
 gsos_activiti:
@@ -20,6 +16,10 @@ gsos_activiti:
    container_name: gsos-activiti
    ports:
       - "8080:8080"
+   environment:
+      DB_NAME: "activiti_db"
+      DB_USER: "activiti_user"
+      DB_PASS: "activiti_pass"
    links:
       - gsos_activiti_db:mysql
 gsos:
