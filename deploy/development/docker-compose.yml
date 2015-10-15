@@ -1,19 +1,36 @@
-gpsi_db:
+gsos_db:
    image: rethinkdb
-   container_name: gpsi-db
+   container_name: gsos-db
    ports:
       - "8082:8080"
-gsos_server:
+      - "28015:28015"
+   volumes:
+      - ./db-tests/gsos-1:/data
+gsos_activiti_db:
+   image: sameersbn/mysql
+   container_name: gsos-activiti-db
+   environment:
+      DB_NAME: "activiti_db"
+      DB_USER: "activiti_user"
+      DB_PASS: "activiti_pass"
+   volumes:
+      - ./db-tests/activiti-1:/var/lib/mysql
+gsos_activiti:
+   image: zaibaiman/alpine-activiti
+   container_name: gsos-activiti
+   ports:
+      - "8080:8080"
+   links:
+      - gsos_activiti_db:mysql
+gsos:
    build: ./node
-   container_name: gsos-server
+   container_name: gsos
    ports:
       - "8083:8080"
    volumes:
       - ../../src:/src
    working_dir: /src
    links:
-      - gpsi_db
-   # external_links:
-   #    - gpsi-activiti:activiti
-   #    - gpsi-db:gpsi_db
+      - gsos_db:db
+      - gsos_activiti:activiti
    command: bash -c "npm install && npm start"

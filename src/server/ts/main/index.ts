@@ -67,8 +67,8 @@ passportConfig(passport);
 
 app.listen(8080);
 
-console.log('Servidor corriendo...')
-console.log('ACTIVITI_TCP_ADDR: ' + process.env.ACTIVITI_PORT_8080_TCP_ADDR);
-console.log('ACTIVITI_TCP_PORT: ' + process.env.ACTIVITI_PORT_8080_TCP_PORT);
-console.log('GPSI_DB_ADDR: ' + process.env.GPSI_DB_PORT_8080_TCP_ADDR);
-console.log('GPSI_DB_PORT: ' + process.env.GPSI_DB_PORT_8080_TCP_PORT);
+console.log('Gsos started...')
+console.log('ACTIVITI_HOST: ' + process.env.ACTIVITI_PORT_8080_TCP_ADDR);
+console.log('ACTIVITI_PORT: ' + process.env.ACTIVITI_PORT_8080_TCP_PORT);
+console.log('DB_HOST: ' + process.env.DB_PORT_28015_TCP_ADDR);
+console.log('DB_PORT: ' + process.env.DB_PORT_28015_TCP_PORT);

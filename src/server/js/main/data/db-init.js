@@ -1,8 +1,8 @@
 var r = require('rethinkdb');
 exports.init = function () {
     var config = {
-        host: process.env.GPSI_DB_PORT_8080_TCP_ADDR,
-        port: "28015"
+        host: process.env.DB_PORT_28015_TCP_ADDR,
+        port: process.env.DB_PORT_28015_TCP_PORT
     };
     var connection = null;
     r.connect(config)

@@ -151,8 +151,8 @@ class BaseRepository<T extends IBaseModel> {
 
    private connect() {
       var config = {
-         host: process.env.GPSI_DB_PORT_8080_TCP_ADDR,
-         port: "28015",
+         host: process.env.DB_PORT_28015_TCP_ADDR,
+         port: process.env.DB_PORT_28015_TCP_PORT,
          db: BaseRepository.DB_NAME
       };
       return r.connect(config);
