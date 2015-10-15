@@ -5,7 +5,7 @@
    "description": "Gsos web application",
    "author": "Francisco Mendoza",
    "scripts": {
-      "start": "nodemon ./server/js/main/index.js"
+      "start": "npm install; nodemon ./server/js/main/index.js"
    },
    "dependencies": {
       "body-parser": "~1.12.4",

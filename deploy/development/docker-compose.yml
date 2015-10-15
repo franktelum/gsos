@@ -33,4 +33,4 @@ gsos:
    links:
       - gsos_db:db
       - gsos_activiti:activiti
-   command: bash -c "npm install && npm start"
+   command: npm start

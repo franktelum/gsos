@@ -62,6 +62,12 @@ app.use('/admin/settings', settingsCntlr);
 app.use('/admin/reports', reportsCntlr);
 app.use('/', accountCntlr(passport));
 
+// redirigir a la página de login si no se encuentra alguna ruta
+app.use(function (req, res, next) {
+   res.redirect('/login');
+   return;
+});
+
 // configurar passport
 passportConfig(passport);
 

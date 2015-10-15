@@ -44,6 +44,10 @@ app.use('/admin/clients', clientsCntlr);
 app.use('/admin/settings', settingsCntlr);
 app.use('/admin/reports', reportsCntlr);
 app.use('/', accountCntlr(passport));
+app.use(function (req, res, next) {
+    res.redirect('/login');
+    return;
+});
 passportConfig(passport);
 app.listen(8080);
 console.log('Gsos started...');
