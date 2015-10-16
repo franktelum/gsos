@@ -3,6 +3,7 @@
 'use strict'
 
 import BaseRepository = require('./../data/base-repository');
+import AppException = require('./../app-exception');
 
 var r = require('rethinkdb');
 
@@ -14,11 +15,15 @@ class UserRepository extends BaseRepository<IUserModel> {
    public getByEmail(email: string, password: string): Promise<IUserModel> {
       return new Promise<IUserModel>((resolve, reject) => {
          super.getAll({email: email, password: password}).then(
-            (response) => {
-               resolve(response[0]);
+            (objects) => {
+               if (objects.length > 0) {
+                  resolve(objects[0]);
+               } else {
+                  reject(new AppException(AppException.EMAIL_OR_PASSWORD_INVALID));
+               }
             },
             (err) => {
-               reject(null);
+               reject(new AppException(AppException.UNKNOWN));
             }
          );
       });

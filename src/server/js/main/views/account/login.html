@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GSOS | Login </title>
+   <title>GSOS | Login </title>
 
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+   <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+   <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <link href="/assets/css/animate.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
+   <link href="/assets/css/animate.css" rel="stylesheet">
+   <link href="/assets/css/style.css" rel="stylesheet">
 
 </head>
 
 <body class="gray-bg">
-    <div class="loginColumns animated fadeInDown">
-        <div class="row">
-            <div class="col-md-6">
-               <h2 class="font-bold">Bienvenido a GSOS</h2>
-              <p>
-                 Administrador web para la gestion, control y procesamiento de auditorías de calidad a proveedores.
-              </p>
-              <p>
-                 Como empresa, invite a sus proveedores a participar en los procesos de auditoría para evaluar la calidad de sus productos y servicios, monitoree los resultados y seleccione a los mejores proveedores.
-              </p>
-              <p>
-                 Como proveedor, de seguimiento a los procesos de auditoría en los que participa como consecuencia de invitaciones que hacen sus clientes y revise los resultados.
-              </p>
-            </div>
-            <div class="col-md-6">
-                <div class="ibox-content">
-                    <form class="m-t" role="form" action="/login" method="POST">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" required="" name="email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Contraseña" required="" name="password">
-                        </div>
-                        <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+   <div class="loginColumns animated fadeInDown">
+      <div class="row">
+         <div class="col-md-6">
+            <h2 class="font-bold">Bienvenido a GSOS</h2>
+            <p>
+               Administrador web para la gestion, control y procesamiento de auditorías de calidad a proveedores.
+            </p>
+            <p>
+               Como empresa, invite a sus proveedores a participar en los procesos de auditoría para evaluar la calidad de sus productos y servicios, monitoree los resultados y seleccione a los mejores proveedores.
+            </p>
+            <p>
+               Como proveedor, de seguimiento a los procesos de auditoría en los que participa como consecuencia de invitaciones que hacen sus clientes y revise los resultados.
+            </p>
+         </div>
+         <div class="col-md-6">
+            <div class="ibox-content">
+               {% if errorCode == 3 %}
+               <div class="alert alert-danger" role="alert" ng-show="vm.hasError">El email ó contraseña proporcionados son inválidos.</div>
+               {% endif %}
+               <form class="m-t" role="form" action="/login" method="POST">
+                  <div class="form-group">
+                     <input type="email" class="form-control" placeholder="Email" required="" name="email">
+                  </div>
+                  <div class="form-group">
+                     <input type="password" class="form-control" placeholder="Contraseña" required="" name="password">
+                  </div>
+                  <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
-                        <a href="#">
-                           <small>¿Olvidó su contraseña?</small>
-                        </a>
+                  <a href="#">
+                     <small>¿Olvidó su contraseña?</small>
+                  </a>
 
-                        <p class="text-muted text-center">
-                           <small>¿No tienes cuenta?</small>
-                        </p>
-                        <a class="btn btn-sm btn-white btn-block" href="register">Crear una cuenta</a>
-                    </form>
-                    <p class="m-t">
-                        <small>GSOS es una marca de GlobalSTD &copy; 2014</small>
-                    </p>
-                </div>
+                  <p class="text-muted text-center">
+                     <small>¿No tienes cuenta?</small>
+                  </p>
+                  <a class="btn btn-sm btn-white btn-block" href="register">Crear una cuenta</a>
+               </form>
+               <p class="m-t">
+                  <small>GSOS es una marca de GlobalSTD &copy; 2014</small>
+               </p>
             </div>
-        </div>
-        <hr/>
-        <div class="row">
-           <div class="col-md-6">
-             Copyright GlobalSTD
-           </div>
-           <div class="col-md-6 text-right">
-             <small>© 2008-2015</small>
-           </div>
-        </div>
-    </div>
+         </div>
+      </div>
+      <hr/>
+      <div class="row">
+         <div class="col-md-6">
+            Copyright GlobalSTD
+         </div>
+         <div class="col-md-6 text-right">
+            <small>© 2008-2015</small>
+         </div>
+      </div>
+   </div>
 
 </body>
 </html>

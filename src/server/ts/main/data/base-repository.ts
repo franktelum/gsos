@@ -1,5 +1,7 @@
 /// <reference path="../../../../../lib/definitely_typed/bluebird/bluebird.d.ts"/>
 
+import AppException = require('./../app-exception');
+
 var r = require('rethinkdb');
 
 class BaseRepository<T extends IBaseModel> {

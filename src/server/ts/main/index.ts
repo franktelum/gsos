@@ -18,6 +18,7 @@ var passport         = require('passport');
 var passportLocal    = require('passport-local');
 var exphbs           = require('express-handlebars');
 var nunjucks         = require('nunjucks');
+var flash            = require('connect-flash');
 var passportConfig   = require('./infrastructure/passport-config');
 var db               = require('./data/db-init');
 
@@ -42,6 +43,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(expressSession({secret: 'my_key'}));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 

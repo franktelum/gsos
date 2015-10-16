@@ -5,6 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var BaseRepository = require('./../data/base-repository');
+var AppException = require('./../app-exception');
 var r = require('rethinkdb');
 var UserRepository = (function (_super) {
     __extends(UserRepository, _super);
@@ -14,10 +15,15 @@ var UserRepository = (function (_super) {
     UserRepository.prototype.getByEmail = function (email, password) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _super.prototype.getAll.call(_this, { email: email, password: password }).then(function (response) {
-                resolve(response[0]);
+            _super.prototype.getAll.call(_this, { email: email, password: password }).then(function (objects) {
+                if (objects.length > 0) {
+                    resolve(objects[0]);
+                }
+                else {
+                    reject(new AppException(AppException.EMAIL_OR_PASSWORD_INVALID));
+                }
             }, function (err) {
-                reject(null);
+                reject(new AppException(AppException.UNKNOWN));
             });
         });
     };

@@ -41,7 +41,9 @@
         "./domain/models.ts",
         "./index.ts",
         "./infrastructure/activiti/exception.ts",
+        "./infrastructure/activiti/process.ts",
         "./infrastructure/activiti/task.ts",
+        "./infrastructure/activiti/utils.ts",
         "./infrastructure/passport-config.ts"
     ]
 }

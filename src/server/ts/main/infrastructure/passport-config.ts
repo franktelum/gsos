@@ -2,6 +2,7 @@
 
 import passport = require('passport');
 import UserRepository   = require('./../data/user-repository');
+import AppException = require('./../app-exception');
 
 var LocalStrategy = require('passport-local');
 
@@ -24,17 +25,18 @@ exports = module.exports = function(passport: passport.Passport) {
 
    passport.use('login', new LocalStrategy(
       {
+         passReqToCallback: true,
          usernameField: 'email',
          passwordField: 'password'
       },
-      function(email, password, done) {
+      function(req, email, password, done) {
          var repository = new UserRepository();
          repository.getByEmail(email, password).then(
             (user) => {
                return done(null, user);
             },
-            (err) => {
-               return done(null, false, {message: 'Incorrect username or password'});
+            (err: AppException) => {
+               return done(null, false, req.flash('errorCode', err.getCode()));
             }
          );
       }

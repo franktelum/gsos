@@ -8,4 +8,6 @@ var Activiti;
         };
         return Task;
     })();
+    Activiti.Task = Task;
 })(Activiti || (Activiti = {}));
+module.exports = Activiti.Task;

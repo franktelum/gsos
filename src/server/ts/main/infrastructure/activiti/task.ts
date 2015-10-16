@@ -1,7 +1,9 @@
 /// <reference path="../../../../../../lib/definitely_typed/bluebird/bluebird.d.ts"/>
 
+export = Activiti.Task;
+
 module Activiti {
-   class Task {
+   export class Task {
       public constructor() {
 
       }

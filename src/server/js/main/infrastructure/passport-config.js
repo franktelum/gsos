@@ -15,14 +15,15 @@ exports = module.exports = function (passport) {
         });
     });
     passport.use('login', new LocalStrategy({
+        passReqToCallback: true,
         usernameField: 'email',
         passwordField: 'password'
-    }, function (email, password, done) {
+    }, function (req, email, password, done) {
         var repository = new UserRepository();
         repository.getByEmail(email, password).then(function (user) {
             return done(null, user);
         }, function (err) {
-            return done(null, false, { message: 'Incorrect username or password' });
+            return done(null, false, req.flash('errorCode', err.getCode()));
         });
     }));
 };
