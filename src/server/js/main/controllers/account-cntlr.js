@@ -35,6 +35,7 @@ module.exports = module.exports = function (passport) {
         Process.start('gsos_user_register', variables).then(function (response) {
             res.render('account/register.html', { showCongrats: true });
         }, function (err) {
+            console.log('ERROR:' + err);
             res.render('account/register.html');
         });
     });

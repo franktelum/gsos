@@ -49,6 +49,7 @@ export = module.exports = function(passport: passport.Passport) {
             res.render('account/register.html',  {showCongrats: true});
          },
          (err) => {
+            console.log('ERROR:' + err);
             res.render('account/register.html');
          }
       );
