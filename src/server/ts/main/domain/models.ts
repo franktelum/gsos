@@ -17,23 +17,28 @@ interface IUserModel extends IBaseModel {
    }
 }
 
+interface IFormOptionModel {
+   name: string;
+   value: number;
+}
+
 interface IFormModel extends IBaseModel {
-   name: string,
-   questions: string[],
-   options: any[]
+   name: string;
+   questions: string[];
+   options: IFormOptionModel[];
 }
 
 interface IChecklistModel extends IBaseModel {
-   userId: string,
-   name: string,
-   forms: IFormModel[]
+   userId: string;
+   name: string;
+   forms: IFormModel[];
 }
 
-interface IClientModel {
+interface IClientModel extends IBaseModel {
 
 }
 
-interface ISupplierModel {
+interface ISupplierModel extends IBaseModel {
 
 }
 
@@ -44,7 +49,7 @@ enum ComplaintSeverity {
 }
 
 interface IComplaintModel extends IBaseModel {
-   reportes: string,
+   reporter: string,
    supplier: IUserModel,
    text: string,
    severity: ComplaintSeverity
