@@ -6,7 +6,6 @@ class ChecklistNewCntlr {
 
    public constructor($scope, $timeout) {
       this.initPlugins();
-
    }
 
    private initPlugins() {
