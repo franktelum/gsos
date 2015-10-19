@@ -21,15 +21,13 @@
       <div class="wrapper wrapper-content">
          <div class="jumbotron">
             <p>Tu lista de auditorías esta vacía, solicita tu primera auditoría</p>
-            <p><a href="/admin/audits/new" role="button" class="btn btn-primary btn-lg">Solicitar auditoríar</a>
+            <p><a href="/admin/audits/new" role="button" class="btn btn-primary btn-lg">Solicitar auditoría</a>
             </p>
          </div>
       </div>
    </div>
 </div>
-{% endif %}
-
-{% if audits.length > 0 %}
+{% else %}
 <div class="row">
    <div class="col-lg-12">
       <div class="wrapper wrapper-content">

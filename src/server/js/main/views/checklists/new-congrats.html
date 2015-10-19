@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block body %}
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-sm-12">
+      <h2>Registrar acreditación</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="#">Inicio</a>
+         </li>
+         <li>
+            <a href="/admin/checklists">Accreditaciones</a>
+         </li>
+         <li class="active">
+            <strong>Solicitar acreditación</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+
+<div class="row">
+   <div class="col-md-12">
+      <div class="wrapper wrapper-content">
+         <div class="jumbotron" style="text-align: center">
+            <h1><i class="fa fa-check-circle-o fa-2x"></i></h1>
+            <h1>Solicitud enviada</h1>
+            <p>La solicitud para registrar nuevo checklist fue enviada con exito.</p>
+            <p><a role="button" class="btn btn-primary btn-lg" href="/admin/checklists">Continuar</a>
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

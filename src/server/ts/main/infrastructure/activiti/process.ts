@@ -16,16 +16,19 @@ module Activiti {
        *
        * @param  {string}           key       [description]
        * @param  {any}              variables [description]
+       * @param  {string}           user      [description]
+       * @param  {string}           password  [description]
        * @return {Promise<Process>}           [description]
        */
-      public static start(key: string, variables: any): Promise<Process> {
+      public static start(key: string, variables: any,
+            email?: string, password?: string): Promise<Process> {
          return new Promise<Process>((resolve, reject) => {
             var data = {
                processDefinitionKey: key,
                variables: variables
             };
 
-            Utils.httpPost('kermit', 'kermit', data).then(
+            Utils.httpPost(email ? email : 'kermit', password ? password : 'kermit', data).then(
                (response) => {
                   if (response.statusCode == 201) {
                      resolve(new Process());

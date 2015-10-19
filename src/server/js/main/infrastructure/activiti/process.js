@@ -5,13 +5,13 @@ var Activiti;
     var Process = (function () {
         function Process() {
         }
-        Process.start = function (key, variables) {
+        Process.start = function (key, variables, email, password) {
             return new Promise(function (resolve, reject) {
                 var data = {
                     processDefinitionKey: key,
                     variables: variables
                 };
-                Utils.httpPost('kermit', 'kermit', data).then(function (response) {
+                Utils.httpPost(email ? email : 'kermit', password ? password : 'kermit', data).then(function (response) {
                     if (response.statusCode == 201) {
                         resolve(new Process());
                     }

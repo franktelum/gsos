@@ -17,41 +17,41 @@
       </ol>
    </div>
 </div>
-<div class="row">
+<div class="row" ng-controller="SupplierNewCntlr">
    <div class="col-lg-10">
       <div class="wrapper wrapper-content">
-         <div class="ibox">
+         <form class="ibox" method="post" action="/admin/suppliers/new">
             <div class="ibox-title">
                <h5>General <small>Use el siguiente formulario para invitar a un proveedor a participar en el proceso de auditoría.</small></h5>
                <div class="ibox-tools">
-                  <a class="btn btn-primary btn-xs">Enviar invitación</a>
+                  <button type="submit" class="btn btn-primary btn-xs">Enviar invitación</a>
                </div>
             </div>
             <div class="ibox-content">
                <p>Agregue correo electrónico de proveedor, documento de términos y condiciones, y documentación adicional que el proveedor debe leer y aceptar.</p>
                <div class="form-group">
                   <label>Email</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="invitationUserEmail" required>
                </div>
                <div class="form-group">
                   <label>Documento de términos y condiciones</label>
-                  <form id="dropzone1" class="dropzone" action="#" style="min-height:160px">
+                  <div id="dropzone1" class="dropzone" style="min-height:160px">
                      <div class="dropzone-previews"></div>
-                  </form>
+                  </div>
                </div>
                <div class="form-group">
                   <label>Documentación adicional</label>
-                  <form id="dropzone2" class="dropzone" action="#" style="min-height:160px">
+                  <div id="dropzone2" class="dropzone" style="min-height:160px">
                      <div class="dropzone-previews"></div>
-                  </form>
+                  </div>
                </div>
                <p>Escriba un comentario o notas adicionales a mostrar al proveedor.</p>
                <div class="form-group">
                   <label>Notas</label>
-                  <textarea class="form-control" rows="6"></textarea>
+                  <textarea class="form-control" rows="6" name="invitationNotes"></textarea>
                </div>
             </div>
-         </div>
+         </form>
       </div>
    </div>
 </div>

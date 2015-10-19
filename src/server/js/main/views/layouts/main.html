@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="GsosApp">
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +12,11 @@
    <link href="/assets/css/plugins/iCheck/custom.css" rel="stylesheet">
    <link href="/assets/css/plugins/dropzone/basic.css" rel="stylesheet">
    <link href="/assets/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+   <link href="/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
    <link href="/assets/css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
    <link href="/assets/css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
    <link href="/assets/css/style.css" rel="stylesheet">
    <link href="/assets/css/checklist-styles.css" media="all" rel="stylesheet" type="text/css" />
-</head>
-<body class="fixed-sidebar fixed-nav">
-   {% include "layouts/sidebar.html" %}
-   <div id="page-wrapper" class="gray-bg dashbard-1">
-      {% include "layouts/header.html" %}
-      <div>
-         {% block body %}{% endblock %}
-      </div>
-   </div>
 
    <!-- Mainly scripts -->
    <script src="/assets/js/jquery-2.1.4.js"></script>
@@ -55,5 +47,29 @@
    <script src="/assets/js/plugins/fullcalendar/moment.min.js"></script>
    <script src="/assets/js/plugins/fullcalendar/fullcalendar.min.js"></script>
    <script src="/assets/js/plugins/toastr/toastr.min.js"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+   <!-- <script src="assets/js/angular/angular.min.js"></script> -->
+
+   <script src="/scripts/controllers/checklist-new-cntlr.js"></script>
+   <script src="/scripts/controllers/supplier-new-cntlr.js"></script>
+   <script src="/scripts/app.js"></script>
+</head>
+<body class="fixed-sidebar fixed-nav">
+   {% include "layouts/sidebar.html" %}
+   <div id="page-wrapper" class="gray-bg dashbard-1">
+      {% include "layouts/header.html" %}
+      <div>
+         {% block body %}{% endblock %}
+      </div>
+   </div>
+
+   <script type="text/javascript">
+      Dropzone.autoDiscover = false;
+
+      {% if notification != null %}
+      toastr.success("{{notification.message}}", "{{notification.title}}");
+      {% endif %}
+   </script>
 </body>
 </html>
