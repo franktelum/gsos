@@ -21,6 +21,7 @@ var nunjucks         = require('nunjucks');
 var flash            = require('connect-flash');
 var passportConfig   = require('./infrastructure/passport-config');
 var db               = require('./data/db-init');
+var dateFilter       = require('nunjucks-date-filter');
 
 // inicializa la base de datos
 db.init();
@@ -28,10 +29,14 @@ db.init();
 // configura express
 var app = express();
 
-nunjucks.configure(__dirname + '/views', {
+var env = nunjucks.configure(__dirname + '/views', {
    autoescape: true,
    express: app
 });
+
+//Configurar date-filter
+// var env = new nunjucks.Environment();
+env.addFilter('date', dateFilter);
 
 // app.engine('hbs', exphbs({defaultLayout: '/src/server/js/main/views/layouts/main', extname: '.hbs'}));
 // app.set('view engine', 'hbs');

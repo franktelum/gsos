@@ -56,7 +56,7 @@
                               <td>
                                  <a data-toggle="tab" href="#contact-1" class="client-link">{{complaint.text}}</a>
                               </td>
-                              <td>{{complaint.createdAt}}</td>
+                              <td>{{complaint.createdAt | date("DD/MM/YYYY")}}</td>
                               <td class="contact-type"><i class="fa fa-user"> </i></td>
                               <td>
                                  <b>{{complaint.supplier.profile.firstName}} {{complaint.supplier.profile.lastName}}</b>

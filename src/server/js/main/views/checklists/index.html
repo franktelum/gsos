@@ -57,7 +57,7 @@
                                     {% endfor %}
                                  </div>
                               </td>
-                              <td>{{checklist.createdAt}}<td>
+                              <td>{{checklist.createdAt | date("DD/MM/YYYY")}}<td>
                               <td class="client-status">
                                  <span class="label label-primary">Activo</span>
                               </td>
