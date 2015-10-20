@@ -17,12 +17,14 @@ var nunjucks = require('nunjucks');
 var flash = require('connect-flash');
 var passportConfig = require('./infrastructure/passport-config');
 var db = require('./data/db-init');
+var dateFilter = require('nunjucks-date-filter');
 db.init();
 var app = express();
-nunjucks.configure(__dirname + '/views', {
+var env = nunjucks.configure(__dirname + '/views', {
     autoescape: true,
     express: app
 });
+env.addFilter('date', dateFilter);
 app.use(express.static('client/public'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded());

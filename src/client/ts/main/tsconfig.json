@@ -22,8 +22,9 @@
         "!./node_modules/**/*"
     ],
     "files": [
-        "./app.ts",
-        "./controllers/checklist-new-cntlr.ts",
-        "./controllers/supplier-new-cntlr.ts"
-    ]
+        "app.ts",
+        "controllers/checklist-new-cntlr.ts",
+        "controllers/supplier-new-cntlr.ts"
+    ],
+    "exclude": []
 }
