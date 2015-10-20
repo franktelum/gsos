@@ -630,3 +630,8 @@
 2015-10-16T17:22:37.401348555 3.078179s info: Table a146e8ba-23fa-43d8-856c-9ddcc9afc489: This server is Raft leader for term 20. Latest log index is 57.
 2015-10-16T17:22:37.549509735 3.226340s info: Table 5cc4db40-22bc-407d-8de1-7d49d80c3e90: Starting a new Raft election for term 20.
 2015-10-16T17:22:37.583863773 3.260695s info: Table 5cc4db40-22bc-407d-8de1-7d49d80c3e90: This server is Raft leader for term 20. Latest log index is 57.
+2015-10-19T22:42:52.573910657 54637.419038s notice: Server got SIGTERM from pid 0, uid 0; shutting down...
+2015-10-19T22:42:52.622124279 54637.467252s notice: Shutting down client connections...
+2015-10-19T22:42:52.671158526 54637.516286s notice: All client connections closed.
+2015-10-19T22:42:52.671166651 54637.516293s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-10-19T22:42:59.673881257 54644.519008s notice: Storage engine shut down.
