@@ -56,6 +56,6 @@ interface IComplaintModel extends IBaseModel {
 }
 
 interface IAuditModel extends IBaseModel {
-   checklistId: string;
+   supplierId: string;
    score: number;
 }
